@@ -48,7 +48,7 @@ const Footer = () => {
                 { name: 'About Us', path: '/about' },
                 { name: 'Contact Us', path: '/contact' },
                 { name: 'Blog', path: '/blog' }
-              ].map((link, index) => (
+              ].map((link) => (
                 <Link 
                   key={link.name}
                   href={link.path}
@@ -69,7 +69,7 @@ const Footer = () => {
                 { href: "https://twitter.com/vigyandarshan", icon: "twitter", label: "Twitter" },
                 { href: "https://www.instagram.com/vigyandarshan/", icon: "instagram", label: "Instagram" },
                 { href: "https://www.youtube.com/@Vigyandarshan", icon: "youtube", label: "YouTube" }
-              ].map((social, index) => (
+              ].map((social) => (
                 <Link
                   key={social.icon}
                   href={social.href}
