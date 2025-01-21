@@ -1,6 +1,7 @@
 "use client"
 import Image from "next/image";
 import { useState } from "react";
+import Caurousal from "@/components/caurousal";
 
 export default function Home() {
   const [visibleImages, setVisibleImages] = useState(6);
@@ -167,6 +168,7 @@ export default function Home() {
                 )}
               </div>
             </div>
+            <Caurousal/>
           </div>
         </div>
       </div>
