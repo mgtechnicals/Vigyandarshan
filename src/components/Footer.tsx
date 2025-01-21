@@ -30,7 +30,7 @@ const Footer = () => {
                   priority={false}
                 />
               </div>
-              <Link href="/" className="text-xl font-bold ml-4 text-transparent bg-clip-text bg-gradient-to-r from-gray-300 to-gray-500 transition duration-300 hover:scale-110">
+              <Link href="/" className="text-xl font-bold ml-4 text-transparent bg-clip-text bg-gradient-to-r from-amber-500 to-amber-500 transition duration-300 hover:scale-110">
                 Vigyan Darshan
               </Link>
             </div>
@@ -41,7 +41,7 @@ const Footer = () => {
 
           {/* Quick Links */}
           <div className="text-center animate-fade-in-down" style={{ animationDelay: '200ms' }}>
-            <h3 className="text-lg font-bold mb-4 text-transparent bg-clip-text bg-gradient-to-r from-gray-300 to-gray-500">Quick Links</h3>
+            <h3 className="text-lg font-bold mb-4 text-transparent bg-clip-text bg-gradient-to-r from-amber-500 to-amber-400">Quick Links</h3>
             <div className="flex flex-col space-y-2">
               {[
                 { name: 'Home', path: '/' },
@@ -62,7 +62,7 @@ const Footer = () => {
 
           {/* Social Links */}
           <div className="text-center md:text-right animate-fade-in-down" style={{ animationDelay: '400ms' }}>
-            <h3 className="text-lg font-bold mb-4 text-transparent bg-clip-text bg-gradient-to-r from-gray-300 to-gray-500">Connect With Us</h3>
+            <h3 className="text-lg font-bold mb-4 text-transparent bg-clip-text bg-gradient-to-r from-amber-500 to-amber-500">Connect With Us</h3>
             <div className="flex justify-center md:justify-end gap-3 text-sm">
               {[
                 { href: "https://www.facebook.com/vigyandarshan", icon: "facebook-f", label: "Facebook" },
