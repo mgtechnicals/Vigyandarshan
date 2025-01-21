@@ -1,7 +1,7 @@
 "use client"
 import Image from "next/image";
 import { useState } from "react";
-import Caurousal from "@/components/caurousal";
+// import Caurousal from "@/components/Caurousal";
 
 export default function Home() {
   const [visibleImages, setVisibleImages] = useState(6);
@@ -45,14 +45,14 @@ export default function Home() {
               loading="eager"
             />
           </div>
-          <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold mt-4 animate-fade-in-down text-center px-4 drop-shadow-lg bg-clip-text text-transparent bg-gradient-to-r from-gray-300 to-gray-500">
+          <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold mt-4 animate-fade-in-down text-center px-4 drop-shadow-lg bg-clip-text text-transparent bg-gradient-to-r from-amber-500 to-amber-300 p-2">
             Vigyan Darshan
           </h1>
         </div>
         <div className="min-h-screen">
           <section className="py-8 sm:py-10 md:py-16 lg:py-20 text-white">
             <div className="container mx-auto text-center px-4 sm:px-6 lg:px-8">
-              <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold mb-8 sm:mb-12 md:mb-16 lg:mb-24 drop-shadow-lg bg-clip-text text-transparent bg-gradient-to-r from-gray-400 to-red-600">
+              <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold mb-8 sm:mb-12 md:mb-16 lg:mb-24 drop-shadow-lg bg-clip-text text-transparent bg-gradient-to-r from-amber-100 to-amber-300">
                 Subscribe to our Youtube Channel
               </h2>
               <p className="text-sm sm:text-base md:text-lg lg:text-xl mb-6 sm:mb-8 md:mb-10 lg:mb-12 px-4 text-gray-300 max-w-3xl mx-auto leading-relaxed">
@@ -64,7 +64,7 @@ export default function Home() {
                 target="_blank"
                 rel="noopener noreferrer"
                 href="https://www.youtube.com/@Vigyandarshan"
-                className="group inline-flex items-center py-2 sm:py-3 px-4 sm:px-6 bg-gradient-to-r from-gray-800 to-red-600 hover:from-red-600 hover:to-gray-800 text-white rounded-lg transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105 animate-pulse hover:animate-none"
+                className="group inline-flex items-center py-2 sm:py-3 px-4 sm:px-6 bg-gradient-to-r from-red-800 to-red-600 hover:from-red-600 hover:to-red-800 text-white rounded-lg transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105 animate-pulse hover:animate-none"
                 aria-label="Subscribe to Vigyan Darshan YouTube Channel"
               >
                 <svg className="w-5 h-5 sm:w-6 sm:h-6 mr-2 transition-transform group-hover:scale-110" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
@@ -76,7 +76,7 @@ export default function Home() {
             <div className="w-full border-t-2 border-gray-700 my-12 md:my-16 shadow-md"></div>
           </section>
           <div className="container mx-auto text-center px-4 mb-8">
-            <h2 className="text-2xl md:text-4xl font-bold text-white mb-6 drop-shadow-lg bg-clip-text text-transparent bg-gradient-to-r from-gray-300 to-gray-500">Featured Videos</h2>
+            <h2 className="text-2xl md:text-4xl font-bold text-white mb-6 drop-shadow-lg bg-clip-text text-transparent bg-gradient-to-r from-amber-500 to-amber-500">Featured Videos</h2>
             <p className="text-base md:text-lg text-gray-300 max-w-2xl mx-auto mb-12">Dive deep into our curated content exploring the intersection of science, philosophy and spirituality</p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 md:gap-8 xl:gap-10 px-4 md:px-6 xl:px-8 max-w-7xl mx-auto">
@@ -146,11 +146,6 @@ export default function Home() {
                         priority={index < 2}
                         quality={85}
                       />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-all duration-300 flex items-center justify-center">
-                        <div className="text-white text-sm sm:text-base md:text-lg bg-black/50 px-4 py-2 rounded-full transform -translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
-                          View Image
-                        </div>
-                      </div>
                     </div>
                   ))}
                 </div>
@@ -160,7 +155,7 @@ export default function Home() {
                   <div className="text-center mt-8">
                     <button
                       onClick={loadMoreImages}
-                      className="px-6 py-3 bg-gradient-to-r from-gray-800 to-black hover:from-black hover:to-gray-800 text-white rounded-lg transition duration-300 shadow-lg hover:shadow-xl transform hover:scale-105"
+                      className="px-6 py-3 bg-gradient-to-r from-amber-800 to-amber-400 hover:from-amber-500 hover:to-amber-800 text-white rounded-lg transition duration-300 shadow-lg hover:shadow-xl transform hover:scale-105"
                     >
                       Load More Images
                     </button>
@@ -168,7 +163,7 @@ export default function Home() {
                 )}
               </div>
             </div>
-            <Caurousal/>
+            {/* <Caurousal/> */}
           </div>
         </div>
       </div>
