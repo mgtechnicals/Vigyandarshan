@@ -1,37 +1,56 @@
-"use client"
+"use client";
 
 import Image from "next/image";
 import Link from "next/link";
 import { useState, useEffect, useRef } from "react";
 
 const Navbar = () => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false); // Mobile menu
+  const [isProjectsOpen, setIsProjectsOpen] = useState(false); // Dropdown for Projects
   const menuRef = useRef<HTMLDivElement>(null);
   const buttonRef = useRef<HTMLButtonElement>(null);
+  const dropdownRef = useRef<HTMLDivElement>(null);
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
+  };
+
+  const toggleProjects = () => {
+    setIsProjectsOpen(!isProjectsOpen);
   };
 
   const closeMenu = () => {
     setIsMenuOpen(false);
   };
 
+  const closeProjectsDropdown = () => {
+    setIsProjectsOpen(false);
+  };
+
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       if (
-        menuRef.current && 
+        menuRef.current &&
         !menuRef.current.contains(event.target as Node) &&
         buttonRef.current &&
         !buttonRef.current.contains(event.target as Node)
       ) {
         setIsMenuOpen(false);
       }
+
+      if (
+        dropdownRef.current &&
+        !dropdownRef.current.contains(event.target as Node) &&
+        buttonRef.current &&
+        !buttonRef.current.contains(event.target as Node)
+      ) {
+        setIsProjectsOpen(false);
+      }
     };
 
-    document.addEventListener('mousedown', handleClickOutside);
+    document.addEventListener("mousedown", handleClickOutside);
     return () => {
-      document.removeEventListener('mousedown', handleClickOutside);
+      document.removeEventListener("mousedown", handleClickOutside);
     };
   }, []);
 
@@ -42,16 +61,20 @@ const Navbar = () => {
           {/* Logo and Brand Name */}
           <div className="flex items-center group">
             <div className="relative">
-              <Image 
-                src="/logo.png" 
-                alt="Logo" 
-                width={40} 
-                height={40} 
+              <Image
+                src="/logo.png"
+                alt="Logo"
+                width={40}
+                height={40}
                 className="w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 transition-transform duration-300 group-hover:rotate-180"
                 priority
               />
             </div>
-            <Link href="/" onClick={closeMenu} className="ml-3 text-amber-500 text-lg sm:text-xl md:text-2xl font-bold hover:text-amber-300 transition-colors duration-300 tracking-wide">
+            <Link
+              href="/"
+              onClick={closeMenu}
+              className="ml-3 text-amber-500 text-lg sm:text-xl md:text-2xl font-bold hover:text-amber-300 transition-colors duration-300 tracking-wide"
+            >
               Vigyan Darshan
             </Link>
           </div>
@@ -87,53 +110,93 @@ const Navbar = () => {
 
           {/* Desktop Navigation Links */}
           <div className="hidden lg:flex lg:items-center lg:space-x-4">
-            <Link href="/" className="text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-amber-600 transition duration-300 hover:scale-105">
+            <Link
+              href="/"
+              className="text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-amber-600 transition duration-300 hover:scale-105"
+            >
               Home
             </Link>
-            <Link href="/about" className="text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-amber-600 transition duration-300 hover:scale-105">
+            <Link
+              href="/about"
+              className="text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-amber-600 transition duration-300 hover:scale-105"
+            >
               About Us
             </Link>
-            <Link href="/contact" className="text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-amber-600 transition duration-300 hover:scale-105">
+            <Link
+              href="/contact"
+              className="text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-amber-600 transition duration-300 hover:scale-105"
+            >
               Contact Us
             </Link>
-            <Link href="/blog" className="text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-amber-600 transition duration-300 hover:scale-105">
-              Blog
+            <Link
+              onClick={(e) => {
+                e.preventDefault();
+                document
+                  .getElementById("gallery")
+                  ?.scrollIntoView({ behavior: "smooth" });
+              }}
+              href="/blog"
+              className="text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-amber-600 transition duration-300 hover:scale-105"
+            >
+              Gallery
             </Link>
-          </div>
-        </div>
 
-        {/* Mobile Navigation Links */}
-        <div 
-          ref={menuRef}
-          className={`lg:hidden transition-all duration-300 ease-in-out ${isMenuOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0 overflow-hidden'}`}
-          aria-hidden={!isMenuOpen}
-        >
-          <div className="px-2 pt-2 pb-3 space-y-1 bg-gradient-to-b from-transparent to-gray-900 rounded-b-lg">
-            <Link href="/" onClick={closeMenu} className="block px-3 py-2 rounded-lg text-base font-medium text-white hover:bg-gray-700 transition duration-300">
-              Home
-            </Link>
-            <Link href="/about" onClick={closeMenu} className="block px-3 py-2 rounded-lg text-base font-medium text-white hover:bg-gray-700 transition duration-300">
-              About Us
-            </Link>
-            <Link href="/contact" onClick={closeMenu} className="block px-3 py-2 rounded-lg text-base font-medium text-white hover:bg-gray-700 transition duration-300">
-              Contact Us
-            </Link>
-            <Link href="/blog" onClick={closeMenu} className="block px-3 py-2 rounded-lg text-base font-medium text-white hover:bg-gray-600 transition duration-300">
+            {/* Projects Dropdown */}
+            <div className="relative">
+              <button
+                onClick={toggleProjects}
+                className="text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-amber-600 transition duration-300 hover:scale-105"
+                ref={buttonRef}
+              >
+                Projects
+              </button>
+              {isProjectsOpen && (
+                <div
+                  ref={dropdownRef}
+                  className="absolute left-0 mt-2 w-48 bg-gray-800 rounded-md shadow-lg z-50"
+                >
+                  <ul className="py-1">
+                    <li>
+                      <Link
+                        href="/projects/project1"
+                        onClick={closeProjectsDropdown}
+                        className="block px-4 py-2 text-sm text-white hover:bg-gray-700"
+                      >
+                        Project 1
+                      </Link>
+                    </li>
+                    <li>
+                      <Link
+                        href="/projects/project2"
+                        onClick={closeProjectsDropdown}
+                        className="block px-4 py-2 text-sm text-white hover:bg-gray-700"
+                      >
+                        Project 2
+                      </Link>
+                    </li>
+                    <li>
+                      <Link
+                        href="/projects/project3"
+                        onClick={closeProjectsDropdown}
+                        className="block px-4 py-2 text-sm text-white hover:bg-gray-700"
+                      >
+                        Project 3
+                      </Link>
+                    </li>
+                  </ul>
+                </div>
+              )}
+            </div>
+
+            <Link
+              href="/blog"
+              className="text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-amber-600 transition duration-300 hover:scale-105"
+            >
               Blog
             </Link>
           </div>
         </div>
       </div>
-
-      <style jsx>{`
-        .nav-link {
-          @apply px-4 py-2 rounded-md text-sm font-medium text-white transition-all duration-300 transform hover:scale-105 hover:shadow-xl active:scale-95 backdrop-blur-sm shadow-lg;
-        }
-        
-        .mobile-nav-link {
-          @apply block px-3 py-2 rounded-md text-base font-medium text-white hover:text-white transition-all duration-200 hover:translate-x-2 hover:shadow-lg active:scale-95 shadow-md;
-        }
-      `}</style>
     </nav>
   );
 };
