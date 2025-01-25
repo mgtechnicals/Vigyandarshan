@@ -1,12 +1,13 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 
 const Projects = () => {
   return (
     <section className="py-20 bg-gray-900 text-white" id="projects">
       <div className="container mx-auto px-4">
-        <h2 className="text-3xl sm:text-4xl md:text-5xl font-semibold text-center text-amber-500 mb-10 pt-12">
+        <h2 className="text-3xl sm:text-4xl md:text-5xl font-semibold text-center text-amber-500 mb-10">
           Our Projects
         </h2>
 
@@ -14,9 +15,10 @@ const Projects = () => {
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
           {/* Project 1 */}
           <div className="bg-gray-800 rounded-lg overflow-hidden shadow-lg transform hover:scale-105 transition-all duration-300">
-            <Link
-              
-              href="/project1.jpg"
+            <Image
+            width={150}
+            height={150}
+              src="/project1.jpg"
               alt="Project 1"
               className="w-full h-48 object-cover"
             />
@@ -37,8 +39,10 @@ const Projects = () => {
 
           {/* Project 2 */}
           <div className="bg-gray-800 rounded-lg overflow-hidden shadow-lg transform hover:scale-105 transition-all duration-300">
-            <Link
-              href="/project2.jpg"
+            <Image
+             width={150}
+             height={150}
+              src="/project2.jpg"
               alt="Project 2"
               className="w-full h-48 object-cover"
             />
@@ -59,8 +63,10 @@ const Projects = () => {
 
           {/* Project 3 */}
           <div className="bg-gray-800 rounded-lg overflow-hidden shadow-lg transform hover:scale-105 transition-all duration-300">
-            <Link
-              href="/project3.jpg"
+            <Image
+             width={150}
+             height={150}
+              src="/project3.jpg"
               alt="Project 3"
               className="w-full h-48 object-cover"
             />
@@ -81,8 +87,10 @@ const Projects = () => {
 
           {/* Project 4 */}
           <div className="bg-gray-800 rounded-lg overflow-hidden shadow-lg transform hover:scale-105 transition-all duration-300">
-            <Link
-              href="/project4.jpg"
+            <Image
+             width={150}
+             height={150}
+              src="/project4.jpg"
               alt="Project 4"
               className="w-full h-48 object-cover"
             />
