@@ -1,9 +1,0 @@
-{
-  "/about/page": "app/about/page.js",
-<<<<<<< HEAD
-  "/page": "app/page.js"
-=======
-  "/contact/page": "app/contact/page.js",
-  "/blog/page": "app/blog/page.js"
->>>>>>> 46ab0b4a8387d66e2972bfba173597d7d36d1791
-}
