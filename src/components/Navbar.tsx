@@ -2,57 +2,20 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useState, useEffect, useRef } from "react";
+import { useState, useRef } from "react";
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false); // Mobile menu
-  const [isProjectsOpen, setIsProjectsOpen] = useState(false); // Dropdown for Projects
   const menuRef = useRef<HTMLDivElement>(null);
   const buttonRef = useRef<HTMLButtonElement>(null);
-  const dropdownRef = useRef<HTMLDivElement>(null);
 
   const toggleMenu = () => {
     setIsMenuOpen((prev) => !prev);
   };
 
-  const toggleProjects = () => {
-    setIsProjectsOpen((prev) => !prev);
-  };
-
   const closeMenu = () => {
     setIsMenuOpen(false);
   };
-
-  const closeProjectsDropdown = () => {
-    setIsProjectsOpen(false);
-  };
-
-  useEffect(() => {
-    const handleClickOutside = (event: MouseEvent) => {
-      if (
-        menuRef.current &&
-        !menuRef.current.contains(event.target as Node) &&
-        buttonRef.current &&
-        !buttonRef.current.contains(event.target as Node)
-      ) {
-        setIsMenuOpen(false);
-      }
-
-      if (
-        dropdownRef.current &&
-        !dropdownRef.current.contains(event.target as Node) &&
-        buttonRef.current &&
-        !buttonRef.current.contains(event.target as Node)
-      ) {
-        setIsProjectsOpen(false);
-      }
-    };
-
-    document.addEventListener("mousedown", handleClickOutside);
-    return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
-    };
-  }, []);
 
   return (
     <nav className="fixed w-full bg-gradient-to-r from-gray-900 via-gray-800 to-black shadow-xl z-50">
@@ -126,7 +89,8 @@ const Navbar = () => {
             { name: "Contact Us", href: "/contact" }, 
             { name: "Gallery", href: "#gallery" }, 
             { name: "Blog", href: "/blog" },
-            { name: "Our Team", href: "/team" }
+            { name: "Our Team", href: "/team" },
+            { name: "Our Projects", href: "/projects" }
           ].map((link, index) => (
               <Link
                 key={index}
@@ -137,37 +101,6 @@ const Navbar = () => {
                 {link.name}
               </Link>
             ))}
-
-            {/* Projects Dropdown */}
-            <div className="relative">
-              <button
-                onClick={toggleProjects}
-                className="text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-amber-600 transition duration-300 hover:scale-105"
-                ref={buttonRef}
-              >
-                Projects
-              </button>
-              {isProjectsOpen && (
-                <div
-                  ref={dropdownRef}
-                  className="absolute left-0 mt-2 w-48 bg-gray-800 rounded-md shadow-lg z-50"
-                >
-                  <ul className="py-1">
-                    {["Project 1", "Project 2", "Project 3"].map((project, i) => (
-                      <li key={i}>
-                        <Link
-                          href={`/projects/project${i + 1}`}
-                          onClick={closeProjectsDropdown}
-                          className="block px-4 py-2 text-sm text-white hover:bg-gray-700"
-                        >
-                          {project}
-                        </Link>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              )}
-            </div>
           </div>
         </div>
       </div>
@@ -182,7 +115,7 @@ const Navbar = () => {
             { name: "Gallery", href: "#gallery" },
             { name: "Blog", href: "/blog" },
             { name: "Our Team", href: "/team" },
-            { name: "Our Projects", href: "/projects"}].map((link, index) => (
+            { name: "Our Projects", href: "/projects" }].map((link, index) => (
               <li key={index}>
                 <Link
                   href={link.href}
