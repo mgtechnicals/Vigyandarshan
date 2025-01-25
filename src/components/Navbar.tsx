@@ -12,11 +12,11 @@ const Navbar = () => {
   const dropdownRef = useRef<HTMLDivElement>(null);
 
   const toggleMenu = () => {
-    setIsMenuOpen(!isMenuOpen);
+    setIsMenuOpen((prev) => !prev);
   };
 
   const toggleProjects = () => {
-    setIsProjectsOpen(!isProjectsOpen);
+    setIsProjectsOpen((prev) => !prev);
   };
 
   const closeMenu = () => {
@@ -89,57 +89,54 @@ const Navbar = () => {
               aria-label="Toggle menu"
             >
               <span className="sr-only">Open main menu</span>
-              <svg
-                className="h-6 w-6"
-                fill="none"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-                aria-hidden="true"
-              >
-                {isMenuOpen ? (
+              {isMenuOpen ? (
+                <svg
+                  className="h-6 w-6"
+                  fill="none"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  aria-hidden="true"
+                >
                   <path d="M6 18L18 6M6 6l12 12" />
-                ) : (
+                </svg>
+              ) : (
+                <svg
+                  className="h-6 w-6"
+                  fill="none"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  aria-hidden="true"
+                >
                   <path d="M4 6h16M4 12h16M4 18h16" />
-                )}
-              </svg>
+                </svg>
+              )}
             </button>
           </div>
 
           {/* Desktop Navigation Links */}
           <div className="hidden lg:flex lg:items-center lg:space-x-4">
-            <Link
-              href="/"
-              className="text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-amber-600 transition duration-300 hover:scale-105"
-            >
-              Home
-            </Link>
-            <Link
-              href="/about"
-              className="text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-amber-600 transition duration-300 hover:scale-105"
-            >
-              About Us
-            </Link>
-            <Link
-              href="/contact"
-              className="text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-amber-600 transition duration-300 hover:scale-105"
-            >
-              Contact Us
-            </Link>
-            <Link
-              onClick={(e) => {
-                e.preventDefault();
-                document
-                  .getElementById("gallery")
-                  ?.scrollIntoView({ behavior: "smooth" });
-              }}
-              href="/blog"
-              className="text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-amber-600 transition duration-300 hover:scale-105"
-            >
-              Gallery
-            </Link>
+            {[{ name: "Home", href: "/" }, 
+            { name: "About Us", href: "/about" }, 
+            { name: "Contact Us", href: "/contact" }, 
+            { name: "Gallery", href: "#gallery" }, 
+            { name: "Blog", href: "/blog" },
+            { name: "Our Team", href: "/team" }
+          ].map((link, index) => (
+              <Link
+                key={index}
+                href={link.href}
+                onClick={link.name === "Gallery" ? closeMenu : undefined}
+                className="text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-amber-600 transition duration-300 hover:scale-105"
+              >
+                {link.name}
+              </Link>
+            ))}
 
             {/* Projects Dropdown */}
             <div className="relative">
@@ -156,47 +153,49 @@ const Navbar = () => {
                   className="absolute left-0 mt-2 w-48 bg-gray-800 rounded-md shadow-lg z-50"
                 >
                   <ul className="py-1">
-                    <li>
-                      <Link
-                        href="/projects/project1"
-                        onClick={closeProjectsDropdown}
-                        className="block px-4 py-2 text-sm text-white hover:bg-gray-700"
-                      >
-                        Project 1
-                      </Link>
-                    </li>
-                    <li>
-                      <Link
-                        href="/projects/project2"
-                        onClick={closeProjectsDropdown}
-                        className="block px-4 py-2 text-sm text-white hover:bg-gray-700"
-                      >
-                        Project 2
-                      </Link>
-                    </li>
-                    <li>
-                      <Link
-                        href="/projects/project3"
-                        onClick={closeProjectsDropdown}
-                        className="block px-4 py-2 text-sm text-white hover:bg-gray-700"
-                      >
-                        Project 3
-                      </Link>
-                    </li>
+                    {["Project 1", "Project 2", "Project 3"].map((project, i) => (
+                      <li key={i}>
+                        <Link
+                          href={`/projects/project${i + 1}`}
+                          onClick={closeProjectsDropdown}
+                          className="block px-4 py-2 text-sm text-white hover:bg-gray-700"
+                        >
+                          {project}
+                        </Link>
+                      </li>
+                    ))}
                   </ul>
                 </div>
               )}
             </div>
-
-            <Link
-              href="/blog"
-              className="text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-amber-600 transition duration-300 hover:scale-105"
-            >
-              Blog
-            </Link>
           </div>
         </div>
       </div>
+
+      {/* Mobile Menu Dropdown */}
+      {isMenuOpen && (
+        <div ref={menuRef} className="lg:hidden mt-2 bg-gray-800 rounded-lg shadow-md">
+          <ul className="py-2 space-y-2">
+            {[{ name: "Home", href: "/" }, 
+            { name: "About Us", href: "/about" },
+            { name: "Contact Us", href: "/contact" },
+            { name: "Gallery", href: "#gallery" },
+            { name: "Blog", href: "/blog" },
+            { name: "Our Team", href: "/team" },
+            { name: "Our Projects", href: "/projects"}].map((link, index) => (
+              <li key={index}>
+                <Link
+                  href={link.href}
+                  onClick={closeMenu}
+                  className="block px-4 py-2 text-sm text-white hover:bg-amber-600 transition duration-300"
+                >
+                  {link.name}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
     </nav>
   );
 };
