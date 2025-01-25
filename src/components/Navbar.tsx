@@ -51,7 +51,7 @@ const Navbar = () => {
                 priority
               />
             </div>
-            <Link href="/" onClick={closeMenu} className="ml-3 text-white text-lg sm:text-xl md:text-2xl font-bold hover:text-gray-300 transition-colors duration-300 tracking-wide">
+            <Link href="/" onClick={closeMenu} className="ml-3 text-amber-500 text-lg sm:text-xl md:text-2xl font-bold hover:text-amber-300 transition-colors duration-300 tracking-wide">
               Vigyan Darshan
             </Link>
           </div>
@@ -87,16 +87,16 @@ const Navbar = () => {
 
           {/* Desktop Navigation Links */}
           <div className="hidden lg:flex lg:items-center lg:space-x-4">
-            <Link href="/" className="text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-gray-700 transition duration-300 hover:scale-105">
+            <Link href="/" className="text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-amber-600 transition duration-300 hover:scale-105">
               Home
             </Link>
-            <Link href="/about" className="text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-gray-700 transition duration-300 hover:scale-105">
+            <Link href="/about" className="text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-amber-600 transition duration-300 hover:scale-105">
               About Us
             </Link>
-            <Link href="/contact" className="text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-gray-700 transition duration-300 hover:scale-105">
+            <Link href="/contact" className="text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-amber-600 transition duration-300 hover:scale-105">
               Contact Us
             </Link>
-            <Link href="/blog" className="text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-gray-600 transition duration-300 hover:scale-105">
+            <Link href="/blog" className="text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-amber-600 transition duration-300 hover:scale-105">
               Blog
             </Link>
           </div>

@@ -8,7 +8,9 @@ const Carousel = () => {
         <div className="relative h-56 overflow-hidden rounded-lg md:h-96">
           <div className="hidden duration-700 ease-in-out" data-carousel-item>
             <Image
-              src="/public/img1.jpg"
+              src="/img1.jpg"
+              width={150}
+              height={150}
               className="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
               alt="Carousel Item 1"
             />
@@ -16,6 +18,8 @@ const Carousel = () => {
           <div className="hidden duration-700 ease-in-out" data-carousel-item>
             <Image
               src="/img1.jpg"
+              width={150}
+              height={150}
               className="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
               alt="Carousel Item 2"
             />
@@ -23,6 +27,8 @@ const Carousel = () => {
           <div className="hidden duration-700 ease-in-out" data-carousel-item>
             <Image
               src="/img1.jpg"
+              width={150}
+              height={150}
               className="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
               alt="Carousel Item 3"
             />
@@ -30,6 +36,8 @@ const Carousel = () => {
           <div className="hidden duration-700 ease-in-out" data-carousel-item>
             <Image
               src="/img1.jpg"
+              width={150}
+              height={150}
               className="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
               alt="Carousel Item 4"
             />
@@ -37,6 +45,8 @@ const Carousel = () => {
           <div className="hidden duration-700 ease-in-out" data-carousel-item>
             <Image
               src="/img1.jpg"
+              width={150}
+              height={150}
               className="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
               alt="Carousel Item 5"
             />
