@@ -52,14 +52,12 @@ export default function Home() {
         <div className="min-h-screen">
           <section className="py-8 sm:py-10 md:py-16 lg:py-20 text-white">
             <div className="container mx-auto text-center px-4 sm:px-6 lg:px-8">
+              <p className="text-sm sm:text-base md:text-lg lg:text-xl mb-6 sm:mb-8 md:mb-10 lg:mb-12 px-4 text-gray-300 max-w-3xl mx-auto leading-relaxed">
+              Vigyan Darshan is such an institution where all types of science from ancient to modern will be discussed logically (cosmology to Philoshophy , Mathematical to medical & Psychology to Technology ! we will touch all topic physical to spritual )
+              </p>
               <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold mb-8 sm:mb-12 md:mb-16 lg:mb-24 drop-shadow-lg bg-clip-text text-transparent bg-gradient-to-r from-amber-100 to-amber-300">
                 Subscribe to our Youtube Channel
               </h2>
-              <p className="text-sm sm:text-base md:text-lg lg:text-xl mb-6 sm:mb-8 md:mb-10 lg:mb-12 px-4 text-gray-300 max-w-3xl mx-auto leading-relaxed">
-                Explore, learn, and grow with us as we embark on an exciting
-                journey through the fascinating world of science, philosophy, and
-                spirituality. Join our community of curious minds!
-              </p>
               <a
                 target="_blank"
                 rel="noopener noreferrer"
@@ -126,7 +124,7 @@ export default function Home() {
           <div className="bg-gradient-to-b from-gray-900/50 to-black/50 backdrop-blur-sm">
             <div className="w-full py-8 sm:py-12 md:py-16">
               <div className="container mx-auto px-4">
-                <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white text-center mb-8">
+                <h2 id="gallery" className="text-2xl sm:text-3xl md:text-4xl font-bold text-white text-center mb-8">
                   Our Gallery
                 </h2>
                 
@@ -163,7 +161,6 @@ export default function Home() {
                 )}
               </div>
             </div>
-            {/* <Caurousal/> */}
           </div>
         </div>
       </div>
