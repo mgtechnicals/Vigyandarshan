@@ -68,7 +68,7 @@ export default function Projects() {
         aria-label="Projects Section"
       >
         <div className="container mx-auto px-4 mt-10">
-          <h1 className="text-3xl sm:text-4xl md:text-5xl font-semibold text-center text-amber-500 mb-10 pt-1">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-center  text-amber-500 mb-10 pt-1">
             Our Projects
           </h1>
 

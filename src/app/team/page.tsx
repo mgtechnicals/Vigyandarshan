@@ -84,7 +84,7 @@ export default function Team() {
         aria-label="Team Members Section"
       >
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-semibold text-center text-amber-500 mb-10 pt-10">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold font-semibold text-center text-amber-500 mb-10 pt-10">
             Meet Our Team
           </h2>
 
