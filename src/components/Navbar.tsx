@@ -87,7 +87,7 @@ const Navbar = () => {
             {[{ name: "Home", href: "/" }, 
             { name: "About Us", href: "/about" }, 
             { name: "Contact Us", href: "/contact" }, 
-            { name: "Gallery", href: "/images" }, 
+            { name: "Gallery", href: "/gallery" }, 
             { name: "Blog", href: "/blog" },
             { name: "Our Team", href: "/team" },
             { name: "Our Projects", href: "/projects" }
@@ -112,7 +112,7 @@ const Navbar = () => {
             {[{ name: "Home", href: "/" }, 
             { name: "About Us", href: "/about" },
             { name: "Contact Us", href: "/contact" },
-            { name: "Gallery", href:"/images" },
+            { name: "Gallery", href:"/gallery" },
             { name: "Blog", href: "/blog" },
             { name: "Our Team", href: "/team" },
             { name: "Our Projects", href: "/projects" }].map((link, index) => (
