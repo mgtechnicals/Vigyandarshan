@@ -16,17 +16,17 @@ const Team = () => {
           {/* Team Member 1 */}
           <div className="bg-gray-800 rounded-lg overflow-hidden shadow-lg transform hover:scale-105 transition-all duration-300">
             <Image
-                width={150}
-                height={150}
-              src="/team1.jpg"
+                width={250}
+                height={250}
+              src="/img1.jpg"
               alt="Team Member 1"
               className="w-full h-48 object-cover"
             />
             <div className="p-6 text-center">
-              <h3 className="text-xl font-bold text-amber-400 mb-2">John Doe</h3>
+              <h3 className="text-xl font-bold text-amber-400 mb-2">Mohit Gaur</h3>
               <p className="text-sm text-gray-400 mb-4">CEO & Founder</p>
               <p className="text-sm text-gray-400">
-                John is the visionary behind our company, dedicated to leading us
+                Mohit is the visionary behind our company, dedicated to leading us
                 toward success with his vast experience in the industry.
               </p>
             </div>
