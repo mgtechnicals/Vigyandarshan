@@ -6,25 +6,25 @@ import { Metadata } from 'next';
 export const metadata: Metadata = {
   title: 'Blog - Vigyan Darshan',
   description: 'Explore the latest scientific discoveries, technological innovations, and research breakthroughs on the Vigyan Darshan blog.',
-}
+};
 
 export default function Blog() {
   const blogPosts = [
     {
       id: 1,
       title: "Latest Discoveries in Quantum Physics",
-      date: "2024-01-15", 
+      date: "2024-01-15",
       image: "/img1.jpg",
       excerpt: "Exploring groundbreaking discoveries in quantum mechanics and their implications for modern science.",
-      slug: "quantum-physics-discoveries"
+      slug: "quantum-physics-discoveries",
     },
     {
       id: 2,
       title: "Advances in Space Exploration",
       date: "2024-01-12",
-      image: "/img2.jpg", 
+      image: "/img2.jpg",
       excerpt: "Recent developments in space technology and upcoming missions to explore our solar system.",
-      slug: "space-exploration-advances"
+      slug: "space-exploration-advances",
     },
     {
       id: 3,
@@ -32,8 +32,8 @@ export default function Blog() {
       date: "2024-01-10",
       image: "/img3.jpg",
       excerpt: "New research findings in environmental science and their impact on climate change solutions.",
-      slug: "environmental-science-breakthroughs"
-    }
+      slug: "environmental-science-breakthroughs",
+    },
   ];
 
   return (
@@ -42,7 +42,7 @@ export default function Blog() {
         className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-10 mix-blend-overlay"
         style={{
           backgroundImage: "url('/bg-pattern.png')",
-          backgroundSize: '200px 200px'
+          backgroundSize: '200px 200px',
         }}
       />
       <div className="container mx-auto px-4 py-24 sm:py-32 relative">
@@ -61,7 +61,7 @@ export default function Blog() {
                   src={post.image}
                   alt={post.title}
                   fill
-                  className="object-contain w-full h-full"
+                  className="object-cover w-full h-full"
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                   priority={post.id === 1}
                 />
@@ -73,7 +73,7 @@ export default function Blog() {
                     {new Date(post.date).toLocaleDateString('en-US', {
                       year: 'numeric',
                       month: 'long',
-                      day: 'numeric'
+                      day: 'numeric',
                     })}
                   </time>
                 </div>
@@ -100,6 +100,15 @@ export default function Blog() {
               </div>
             </div>
           ))}
+
+          {/* Coming Soon Card */}
+          <div className="bg-gray-700 rounded-xl shadow-xl p-6 flex flex-col justify-center items-center text-center">
+            <h3 className="text-xl font-semibold text-gray-200 mb-4">Coming Soon</h3>
+            <p className="text-gray-400 mb-4">Stay tuned for more insightful blogs on cutting-edge topics!</p>
+            <button className="bg-gray-800 text-gray-300 px-4 py-2 rounded-lg font-medium hover:bg-gray-600 transition-colors duration-300">
+              Notify Me
+            </button>
+          </div>
         </div>
       </div>
     </div>
