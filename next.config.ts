@@ -4,7 +4,7 @@ const nextConfig: NextConfig = {
   // Add your configuration options here
   reactStrictMode: true,
   images: {
-    domains: ["via.placeholder.com", "images.unsplash.com"], // Combine allowed domains into one array
+    domains: ["via.placeholder.com", "images.unsplash.com","flowbite.s3.amazonaws.com"], // Combine allowed domains into one array
   },
 };
 

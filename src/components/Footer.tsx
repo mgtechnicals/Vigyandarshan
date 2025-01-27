@@ -7,7 +7,7 @@ import '@fortawesome/fontawesome-free/css/all.min.css';
 
 const Footer = () => {
   return (
-    <footer className="bg-gradient-to-b from-gray-900 via-gray-800 to-black text-white py-12 relative pt-40">
+    <footer className="mt-auto bg-gradient-to-b from-gray-900 via-gray-800 to-black text-white py-12 relative pt-40">
       <div 
         className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-10 mix-blend-overlay"
         style={{

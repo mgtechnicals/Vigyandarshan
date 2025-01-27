@@ -38,7 +38,7 @@ export default function Aboutus () {
             <h3 className="text-xl font-semibold text-white mb-4">
               Video Editing and Voice Over
             </h3>
-            <p className="text-gray-300">By Mohit and Nishant</p>
+            <p className="text-gray-300">By Mohit Gaur</p>
           </div>
 
           <div className="bg-gray-800/50 backdrop-blur-sm rounded-xl p-6 sm:p-8 shadow-xl hover:shadow-2xl transition duration-300">
