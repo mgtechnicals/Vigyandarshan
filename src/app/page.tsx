@@ -1,28 +1,27 @@
-"use client"
 import Image from "next/image";
-import { useState } from "react";
-// import Caurousal from "@/components/Caurousal";
+import Link from "next/link";
+import type { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: 'Vigyan Darshan - Exploring Science, Philosophy & Spirituality',
+  description: 'Discover the intersection of science, philosophy, and spirituality with Vigyan Darshan. Watch our educational videos and explore our content.',
+  openGraph: {
+    title: 'Vigyan Darshan',
+    description: 'Exploring Science, Philosophy & Spirituality',
+    images: ['/logo.png'],
+  },
+}
+
+const featuredImages = [
+  { src: "/img1.jpg", alt: "Gallery Image 1" },
+  { src: "/img2.jpg", alt: "Gallery Image 2" },
+  { src: "/img3.jpg", alt: "Gallery Image 3" },
+  { src: "/img4.jpg", alt: "Gallery Image 4" },
+  { src: "/img5.jpg", alt: "Gallery Image 5" },
+  { src: "/img1.jpg", alt: "Gallery Image 6" },
+];
 
 export default function Home() {
-  const [visibleImages, setVisibleImages] = useState(6);
-  const allImages = [
-    { src: "/img1.jpg", alt: "Gallery Image 1" },
-    { src: "/img2.jpg", alt: "Gallery Image 2" },
-    { src: "/img3.jpg", alt: "Gallery Image 3" },
-    { src: "/img4.jpg", alt: "Gallery Image 4" },
-    { src: "/img5.jpg", alt: "Gallery Image 5" },
-    { src: "/img1.jpg", alt: "Gallery Image 6" },
-    { src: "/img2.jpg", alt: "Gallery Image 7" },
-    { src: "/img3.jpg", alt: "Gallery Image 8" },
-    { src: "/img4.jpg", alt: "Gallery Image 9" },
-    { src: "/img5.jpg", alt: "Gallery Image 10" },
-    { src: "/img1.jpg", alt: "Gallery Image 11" },
-    { src: "/img2.jpg", alt: "Gallery Image 12" }
-  ];
-
-  const loadMoreImages = () => {
-    setVisibleImages(prev => Math.min(prev + 6, allImages.length));
-  };
   return (
     <div className="min-h-screen bg-gradient-to-b from-gray-900 via-gray-800 to-black">
       <div 
@@ -130,7 +129,7 @@ export default function Home() {
                 
                 {/* Responsive Grid Container for Gallery */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4 md:gap-6 max-w-7xl mx-auto">
-                  {allImages.slice(0, visibleImages).map((image, index) => (
+                  {featuredImages.map((image, index) => (
                     <div 
                       key={index}
                       className="aspect-square relative cursor-pointer group overflow-hidden rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300"
@@ -148,17 +147,14 @@ export default function Home() {
                   ))}
                 </div>
 
-                {/* Load More Button */}
-                {visibleImages < allImages.length && (
-                  <div className="text-center mt-8">
-                    <button
-                      onClick={loadMoreImages}
-                      className="px-6 py-3 bg-gradient-to-r from-amber-800 to-amber-400 hover:from-amber-500 hover:to-amber-800 text-white rounded-lg transition duration-300 shadow-lg hover:shadow-xl transform hover:scale-105"
-                    >
-                      Load More Images
-                    </button>
-                  </div>
-                )}
+                <div className="text-center mt-8">
+                  <Link
+                    href="/gallery"
+                    className="px-6 py-3 bg-gradient-to-r from-amber-800 to-amber-400 hover:from-amber-500 hover:to-amber-800 text-white rounded-lg transition duration-300 shadow-lg hover:shadow-xl transform hover:scale-105 inline-block"
+                  >
+                    View Full Gallery
+                  </Link>
+                </div>
               </div>
             </div>
           </div>
